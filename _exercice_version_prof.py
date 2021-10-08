@@ -37,6 +37,9 @@ def remove_comments(full_text, comment_start, comment_end):
 		# Trouver le premier début et la première fin de commentaire
 		start = text.find(comment_start)
 		end = text.find(comment_end)
+		# Si aucun des deux trouvés
+		if start == -1 and end == -1:
+			return text
 		# Si fermeture précède l'ouverture ou que j'ai un mais pas l'autre
 		if end < start or (start == -1) != (end == -1):
 			# Pas bon
